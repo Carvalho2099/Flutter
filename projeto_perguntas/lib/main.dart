@@ -4,8 +4,11 @@ main() => runApp(PerguntaApp());
 
 class PerguntaApp extends StatelessWidget{
 
+  var perguntaSelecionada = 0;
+
   void responder() {
-    print('Pergunta respondida!');
+    perguntaSelecionada++;
+    print(perguntaSelecionada);
   }
 
   @override
@@ -21,20 +24,18 @@ class PerguntaApp extends StatelessWidget{
         ),
         body: Column(
           children: <Widget>[
-            Text(perguntas.elementAt(0)),
+            Text(perguntas[perguntaSelecionada]),
             RaisedButton(
               child: Text('Resposta 1'),
               onPressed: responder,
             ),
             RaisedButton(
               child: Text('Resposta 2'),
-              onPressed: (){
-                print('Respota 2 foi selecionada');
-              },
+              onPressed: responder,
             ),
             RaisedButton(
               child: Text('Resposta 3'),
-              onPressed: () => print('Resposta 3!!!'),
+              onPressed: responder,
             ),
           ],
         ),  
