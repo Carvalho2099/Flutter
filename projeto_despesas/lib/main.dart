@@ -36,6 +36,8 @@ class MyHomePage extends StatelessWidget {
         title: Text('Despesas Pessoais'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
             width: double.infinity,
@@ -48,7 +50,20 @@ class MyHomePage extends StatelessWidget {
           Column(
             children: _transacions.map((tr){
               return Card(
-                child: Text(tr.title),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(tr.value.toString(),
+                      )
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(tr.title),
+                        Text(tr.date.toString()),
+                      ],
+                      )
+                  ],
+                  ),
               );
             }).toList(),
           )
