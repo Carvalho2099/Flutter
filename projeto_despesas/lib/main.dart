@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_despesas/components/transactions_form.dart';
 import 'dart:math';
+import 'dart:io';
 import 'components/transactions_form.dart';
 import 'components/transactions_list.dart';
 import 'components/chart.dart';
@@ -148,7 +149,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: Platform.isIOS 
+      ? Container() 
+      : FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () => _openTransactionFormModal(context),
       ),
